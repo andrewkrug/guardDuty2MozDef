@@ -4,7 +4,6 @@ import logging
 
 from datetime import datetime
 from os import getenv
-from pytz import timezone
 
 
 logger = logging.getLogger(__name__)
@@ -14,7 +13,7 @@ def convert_my_iso_8601(iso_8601):
     assert iso_8601[-1] == 'Z'
     iso_8601 = iso_8601[:-1] + '000'
     iso_8601_dt = datetime.strptime(iso_8601, '%Y-%m-%dT%H:%M:%S.%f')
-    return str(iso_8601_dt.replace(tzinfo=timezone('UTC')))
+    return str(iso_8601_dt)
 
 def send_to_sns(event, sns_client):
     """Send the transformed message to the SNS topic that outputs to another SQS queue."""

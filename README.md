@@ -1,4 +1,4 @@
-# amazon-guardduty-to-slack
+# amazon-guardduty-to-mozdef
 Demonstrates sending Amazon GuardDuty findings to MozDef
 
 ## Prerequisites:

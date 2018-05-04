@@ -39,8 +39,8 @@ def transform_event(event):
         'processname': 'guardduty',
         'processid': 1337,
         'severity': 'INFO',
-        'summary': guardduty_event.get('title'),
-        'category': guardduty_event.get('type'),
+        'summary': guardduty_event['detail']['description'],
+        'category': guardduty_event['detail']['type'],
         'source': 'guardduty',
         'tags': [
             guardduty_event['detail']['service']['action']['actionType']

@@ -37,7 +37,16 @@ Resources:
         - arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
         - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
-      Policies: []
+      Policies:
+        -
+          PolicyName: "allow-sns-topic-publishing"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              -
+                Effect: "Allow"
+                Action: "sns:Publish"
+                Resource: !Ref SnsOutputTopic
   ScheduledRule:
     DependsOn:
       - findingsToMozDef

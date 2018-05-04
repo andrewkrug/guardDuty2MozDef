@@ -1,0 +1,4 @@
+env3/
+.DS_Store
+tests/__pycache__
+gd2md/__pycache__
